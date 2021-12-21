@@ -1,0 +1,26 @@
+$transparent:               transparent;
+
+// Start with assigning color names to specific hex values.
+$white:                     #ffffff;
+$black:                     #000000;
+
+// Primary
+$prim-100:                  #336CCE;
+
+// Secondary
+$secon-100:                 #CF3135;
+$colors: (
+    prim-100:   $prim-100,
+    secon-100:  $secon-100,
+);
+
+@mixin gen-props($prefix, $property) {
+    @each $color-name, $color in $colors {
+      .#{$prefix}-#{$color-name} {
+        #{$property}: $color
+      }
+    }
+}
+
+@include gen-props('text', 'color');
+@include gen-props('bg', 'background-color');
