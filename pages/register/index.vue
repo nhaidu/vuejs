@@ -24,10 +24,10 @@
                         </p>
                     </el-row>
                     <el-row>
-                        <el-input placeholder="Nhập mã tài khoản" v-model="code"></el-input>
+                        <el-input v-model="code" placeholder="Nhập mã tài khoản" />
                     </el-row>
                     <el-row>
-                        <el-button class="btn-5">
+                        <el-button class="btn-5" @click="submit()">
                             Xác nhận
                         </el-button>
                     </el-row>
@@ -50,6 +50,12 @@
                 code: '',
             };
         },
+        layout: 'auth',
+        methods: {
+            submit() {
+                this.$router.push(`/register/${this.code}`);
+            },
+        },
     };
 </script>
 
@@ -63,6 +69,8 @@
 
 .resgister {
     background-color: #980C0F;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .resgister-body {}

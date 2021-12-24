@@ -33,6 +33,7 @@ export default {
     css: [
         '@/assets/main.scss',
         '@fortawesome/fontawesome-free/css/all.css',
+        {src: '~/plugins/chart.js', mode: 'client'},
     ],
 
     plugins: [

@@ -36,13 +36,13 @@
                         </div>Email
                     </el-row>
                     <el-row>
-                        <el-input placeholder="Số điện thoại" />
+                        <el-input v-model="sdt" placeholder="Số điện thoại" />
                     </el-row>
                     <el-row>
-                        <el-input placeholder="Họ và tên" />
+                        <el-input v-model="name" placeholder="Họ và tên" />
                     </el-row>
                     <el-row>
-                        <el-button class="btn-5">
+                        <el-button class="btn-5" @click="submit()">
                             Đăng ký
                         </el-button>
                     </el-row>
@@ -60,11 +60,19 @@
 
 <script>
     export default {
+        layout: 'auth',
         data() {
             return {
                 code: '',
                 radio: '',
+                sdt: '',
+                name: '',
             };
+        },
+        methods: {
+            submit() {
+                this.$router.push('/register/succes');
+            },
         },
     };
 </script>
@@ -79,6 +87,8 @@
 
 .resgister {
     background-color: #980C0F;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .resgister-body {}
@@ -205,7 +215,7 @@
 }
 
 .btn-5 {
-margin-top: 24px;
+    margin-top: 24px;
     margin-left: 48px;
     width: 432px;
     height: 48px;
